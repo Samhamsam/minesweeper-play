@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+
+# Site
+GET     /                           controllers.HomeController.index
+GET     /game                       controllers.HomeController.game
+GET     /instructions               controllers.HomeController.instructions()
+GET     /about                      controllers.HomeController.about()
+
+
+# Expose API for other services to access controller
+# DISABLED GET     /api/json                  controllers.HomeController.getJson
+# DISABLED POST    /api/json                  controllers.HomeController.postJson
+
+
+# WebSockets stuff
+GET     /socket/:uid                controllers.HomeController.connectWebSocket(uid: String)
+
+
+# Pac4J stuff
+GET         /callback                         @org.pac4j.play.CallbackController.callback()
+POST        /callback                         @org.pac4j.play.CallbackController.callback()
+GET         /logout                           @org.pac4j.play.ApplicationLogoutController.logout()

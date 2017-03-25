@@ -1,0 +1,125 @@
+@import "hover/hover";
+@import "lib/font-awesome/less/font-awesome";
+@import "_variables";
+
+.default-border {
+  margin: 0.1vw;
+  padding: 0.1vw;
+}
+
+#game{
+  // enabling this causes a vertical scroll bar to pop up at explosion animation...
+  //overflow-x: scroll;
+  //&.gameover {
+  //  overflow: hidden;;
+  //}
+}
+
+#soundSettings:hover, #settings-devmode:hover {
+  cursor: pointer;
+}
+
+#grid{
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.33);
+  padding: 0.5em;
+  border-radius: 0.9em;
+  //overflow:hidden;
+  white-space: nowrap;
+}
+
+.row {
+  display: block;
+  .default-border;
+}
+
+.cell {
+  color: black;
+  background: @light-grey;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: .15em;
+
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  transition: background-color 400ms linear;
+
+  width: 40px;
+  height: 40px;
+  font-size: 2em;
+  text-align: center;
+  margin: 3px;
+
+  user-select: none;
+
+  &.surrounding-0 {
+    background-color: @green;
+  }
+  &.surrounding-1 {
+    background-color: @yellow-1;
+  }
+  &.surrounding-2 {
+    background-color: @yellow-2;
+  }
+  &.surrounding-3, &.surrounding-4, &.surrounding-5, &.surrounding-6, &.surrounding-7, &.surrounding-8 {
+    background-color: @yellow-3;
+  }
+  &.mine {
+    background-color: @red;
+    .fa-but-larger;
+  }
+  &.vibrate {
+    // copied from hvr-buzz
+    -webkit-transform: perspective(1px) translateZ(0) scale(1.2, 1.2);
+    transform: perspective(1px) translateZ(0) scale(1.2, 1.2);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-animation-name: hvr-buzz;
+    animation-name: hvr-buzz;
+    -webkit-animation-duration: 0.15s;
+    animation-duration: 0.15s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+  }
+  &.flagged {
+    .fa-but-larger;
+  }
+}
+
+.fa-but-larger {
+  font-size: 140% !important;
+}
+
+.fa-but-much-larger {
+  font-size: 150%;
+}
+
+.btn {
+  height: 45px !important;
+}
+
+#settings-button {
+  .fa-but-much-larger;
+}
+
+#choose-difficulty, #choose-size {
+  div {
+    display: inline-block;
+    vertical-align: middle;
+
+    img {
+      margin: 0 auto;
+      display: block;
+      width: 50%;
+    }
+    small {
+      display: block;
+      text-align: center;
+      margin: 10px 0 0 0;
+    }
+  }
+}
